@@ -47,3 +47,16 @@ class Test_creenshot:
        time.sleep(2)
        URL = self.driver.current_url
        print('url is',URL)
+
+
+   def test_pf(self,setup):
+       self.driver = setup
+       self.driver.find_element(By.NAME, 'username').send_keys('Admin')
+       self.driver.find_element(By.NAME, 'password').send_keys('admin123')
+       self.driver.find_element(By.XPATH,
+                                '//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[3]/button').click()
+       self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[1]/aside/nav/div[2]/ul/li[6]/a').click()
+       time.sleep(2)
+       go = self.driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[1]/div[1]/div[2]/div/img')
+       go.screenshot('C:\\Users\\Admin\\PycharmProjects\\pytest_project\\Screenshot\\profile.jpg')
+       time.sleep(2)
